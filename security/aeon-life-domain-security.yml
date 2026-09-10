@@ -1,0 +1,15 @@
+generated: '2026-09-10'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.aeonlife.com.cn
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Jan 31 08:39:58 2027 GMT
+  hsts: null
+domains:
+- domain: aeonlife.com.cn
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false

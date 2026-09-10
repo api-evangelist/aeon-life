@@ -64,5 +64,18 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Aeon Life is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/aeon-life-stock
+Aeon Life Insurance Company, Ltd. (百年人寿保险股份有限公司, "AEON LIFE") is a Chinese life insurer
+headquartered in Dalian, Liaoning, established on 1 June 2009 with registered capital of RMB 7.9048
+billion. It writes life, health and personal accident insurance and other personal-insurance lines,
+reinsurance of those lines, and regulated insurance-fund investment business, across twenty provinces
+and municipalities in China.
+
+**No public API surface.** Probed 2026-09-10: `api.`, `open.` and `developer.aeonlife.com.cn` do not
+resolve; every `/.well-known/` path, `/openapi.json`, `/swagger.json`, `/v2/api-docs`, `/llms.txt` and
+`/robots.txt` on `www.aeonlife.com.cn` return 404; the group flexible-benefits gateway
+`o2o.aeonlife.com.cn` answers every unauthenticated request with a JSON authentication-failure
+envelope and publishes no reference. Aeon Life has no developer portal, no SDK, and no
+machine-readable API contract. See `well-known/aeon-life-well-known.yml` for the full probe record.
+
+- Website: https://www.aeonlife.com.cn/
+- Secondary-market listing (identification source): https://www.hiive.com/securities/aeon-life-stock

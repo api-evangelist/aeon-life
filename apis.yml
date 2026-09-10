@@ -1,7 +1,18 @@
 aid: aeon-life
 name: Aeon Life
-description: 'Aeon Life is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Aeon Life Insurance Company, Ltd. (百年人寿保险股份有限公司, "AEON LIFE") is
+  a Chinese life insurer headquartered in Dalian, Liaoning, established on 1 June 2009
+  with registered capital of RMB 7.9048 billion. Its licensed scope covers life, health
+  and personal accident insurance and other personal-insurance lines, reinsurance of those
+  lines, and regulated insurance-fund investment business, sold across twenty provinces
+  and municipalities including Dalian, Liaoning, Beijing, Hubei, Hebei, Henan, Jiangsu,
+  Shandong, Sichuan, Guangdong, Zhejiang and Chongqing. Its public web presence is a
+  Chinese-language corporate site with an online insurance mall, claims and policy-service
+  sections, and the information-disclosure pages Chinese insurance regulation requires.
+  The company publishes no developer portal, no API documentation and no machine-readable
+  API contract; its group flexible-benefits platform (o2o.aeonlife.com.cn) and e-insurance
+  customer portal both sit behind logins.'
+image: https://www.aeonlife.com.cn/images/common/logo_aeon.png
 url: https://raw.githubusercontent.com/api-evangelist/aeon-life/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +23,12 @@ created: '2026-09-10'
 modified: '2026-09-10'
 tags:
 - Company
+- Insurance
+- Life Insurance
+- Health Insurance
+- Financial Services
+- China
+- Consumer
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +36,56 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/aeon-life-domain-security.yml
+- type: LLMsTxt
+  url: llms/aeon-life-llms.txt
 - type: Website
+  url: https://www.aeonlife.com.cn/
+- type: About
+  url: https://www.aeonlife.com.cn/about/companyprofile/index.shtml
+- type: Support
+  url: https://www.aeonlife.com.cn/customer/index.shtml
+- type: TermsOfService
+  url: https://www.aeonlife.com.cn/footer/law/index.shtml
+- type: PrivacyPolicy
+  url: https://www.aeonlife.com.cn/footer/privacy/index.shtml
+- type: SignUp
+  url: https://www.aeonlife.com.cn/einsurance/front/page/register.html
+- type: Login
+  url: https://www.aeonlife.com.cn/einsurance/front/page/login.html
+- type: Newsroom
+  url: https://www.aeonlife.com.cn/news/index.shtml
+- type: Careers
+  url: https://www.aeonlife.com.cn/join/index.shtml
+- type: X-InformationDisclosure
+  url: https://www.aeonlife.com.cn/info/index.shtml
+- type: SecondaryMarket
   url: https://www.hiive.com/securities/aeon-life-stock
+x-enrichment:
+  date: '2026-09-10'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Aeon Life Insurance Company, Ltd. (百年人寿) is a Chinese retail life insurer whose only
+    public surface is a Chinese-language corporate site and insurance mall; api., open. and
+    developer.aeonlife.com.cn have no DNS record at all, and the one machine-readable host it
+    does run — the group flexible-benefits gateway o2o.aeonlife.com.cn — answers every path,
+    documented or not, with the same JSON envelope {"resultCode":"-3","resultMsg":"…认证失败"}
+    and publishes no reference of any kind.
+  evidence:
+  - url: https://www.aeonlife.com.cn/openapi.json
+    status: 404
+  - url: https://www.aeonlife.com.cn/.well-known/agent-card.json
+    status: 404
+  - url: https://www.aeonlife.com.cn/llms.txt
+    status: 404
+  - url: https://o2o.aeonlife.com.cn/v3/api-docs
+    status: 404
+  - url: https://o2o.aeonlife.com.cn/o2o/login
+    status: 200
+  checked: '2026-09-10'

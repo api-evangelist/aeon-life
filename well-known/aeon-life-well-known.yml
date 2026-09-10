@@ -1,0 +1,135 @@
+generated: '2026-09-10'
+method: probed
+source: live unauthenticated GET probes of every host this record knows
+name: Aeon Life well-known discovery probe
+description: >-
+  Aeon Life Insurance Company, Ltd. (百年人寿) publishes no well-known discovery document
+  on any host reachable from this record. The corporate site www.aeonlife.com.cn returns a
+  548-byte nginx 404 page for every /.well-known/ path probed. The apex aeonlife.com.cn has
+  no A record and does not connect. The group flexible-benefits gateway o2o.aeonlife.com.cn
+  answers HTTP 200 with application/json for EVERY path — a catch-all authentication
+  envelope ({"resultCode":"-3","resultMsg":"请求访问：<path>，认证失败，无法访问系统资源"}),
+  not a discovery document — so each of those rows is recorded as a miss (real_document:
+  false). No document returned a real payload, so no raw file was saved and NO WellKnown or
+  SecurityTxt pointer is emitted in apis.yml.
+hosts:
+- host: www.aeonlife.com.cn
+  note: Corporate website (Huawei Cloud WAF, nginx). Every well-known path returns the site 404 page.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: aeonlife.com.cn
+  note: >-
+    Registrable domain. No A/AAAA record — the connection never establishes, so status 0
+    means "unreachable", not "served an error".
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    real_document: false
+    result: miss
+  - path: /.well-known/openid-configuration
+    status: 0
+    real_document: false
+    result: miss
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    real_document: false
+    result: miss
+  - path: /.well-known/api-catalog
+    status: 0
+    real_document: false
+    result: miss
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    real_document: false
+    result: miss
+  - path: /.well-known/agent-card.json
+    status: 0
+    real_document: false
+    result: miss
+  - path: /.well-known/agent.json
+    status: 0
+    real_document: false
+    result: miss
+- host: o2o.aeonlife.com.cn
+  note: >-
+    Group flexible-benefits platform (团险弹性福利平台). Catch-all JSON authentication
+    envelope on every path — HTTP 200 carrying resultCode -3 "认证失败" rather than any
+    document. Recorded as present-but-not-a-real-document.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: application/json
+    real_document: false
+    result: auth-envelope-catchall
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    real_document: false
+    result: auth-envelope-catchall
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    real_document: false
+    result: auth-envelope-catchall
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: application/json
+    real_document: false
+    result: auth-envelope-catchall
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: application/json
+    real_document: false
+    result: auth-envelope-catchall
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json
+    real_document: false
+    result: auth-envelope-catchall
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: application/json
+    real_document: false
+    result: auth-envelope-catchall
+non_well_known_probes:
+  note: >-
+    Contract-discovery probes recorded here for completeness; none returned a spec.
+    api.aeonlife.com.cn, open.aeonlife.com.cn and developer.aeonlife.com.cn have no DNS
+    record at all. Certificate-transparency enumeration (crt.sh) returned only
+    appemm., vpnapp. and bndata-pro.aeonlife.com.cn, none of which resolve publicly.
+  probes:
+  - url: https://www.aeonlife.com.cn/openapi.json
+    status: 404
+  - url: https://www.aeonlife.com.cn/swagger.json
+    status: 404
+  - url: https://www.aeonlife.com.cn/v2/api-docs
+    status: 404
+  - url: https://www.aeonlife.com.cn/llms.txt
+    status: 404
+  - url: https://www.aeonlife.com.cn/robots.txt
+    status: 404
+  - url: https://o2o.aeonlife.com.cn/v3/api-docs
+    status: 404
+    note: Spring Boot JSON 404 — springdoc is not exposed.
+  - url: https://o2o.aeonlife.com.cn/doc.html
+    status: 404
+    note: knife4j not exposed.
+  - url: https://o2o.aeonlife.com.cn/o2o/login
+    status: 200
+    note: >-
+      Login page for the group flexible-benefits platform. Every /o2o/* path (including
+      /o2o/v3/api-docs and /o2o/doc.html) returns this same 13,878-byte HTML login shell,
+      so a 200 under that prefix is a soft hit, not a document.

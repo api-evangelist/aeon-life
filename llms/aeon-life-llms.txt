@@ -1,0 +1,64 @@
+# Aeon Life
+
+> Aeon Life Insurance Company, Ltd. (百年人寿保险股份有限公司, "AEON LIFE") is a Chinese life
+> insurer headquartered in Dalian, Liaoning, established on 1 June 2009 with registered capital
+> of RMB 7.9048 billion. It writes life, health and personal accident insurance and other
+> personal-insurance lines, reinsurance of those lines, and regulated insurance-fund investment
+> business, across twenty provinces and municipalities in China. Customer service and complaints
+> run through the national hotline 95542.
+
+<!--
+generated: '2026-09-10'
+method: generated
+source: apis.yml + repo artifacts (API Evangelist enrichment pipeline)
+note: Aeon Life does not publish an llms.txt. https://www.aeonlife.com.cn/llms.txt returned
+      404 on 2026-09-10. This file is an API Evangelist third-party index of the company's
+      public surface, not a document served by Aeon Life.
+-->
+
+## APIs
+
+Aeon Life publishes no public API, no developer portal, and no machine-readable API contract.
+Probed on 2026-09-10: `api.`, `open.` and `developer.aeonlife.com.cn` have no DNS record;
+`/openapi.json`, `/swagger.json`, `/v2/api-docs`, `/llms.txt`, `/robots.txt` and every
+`/.well-known/` path on `www.aeonlife.com.cn` returned 404. The group flexible-benefits
+platform `o2o.aeonlife.com.cn` is a real JSON service but answers every unauthenticated
+request with `{"resultCode":"-3","resultMsg":"…认证失败，无法访问系统资源"}` and publishes no
+reference; `/v3/api-docs` and `/doc.html` on that host return 404. The company website is in
+Chinese only.
+
+## Company
+
+- [Aeon Life](https://www.aeonlife.com.cn/): Company website (Chinese)
+- [Company Profile](https://www.aeonlife.com.cn/about/companyprofile/index.shtml): 公司简介 — history, scale and business
+- [Basic Information Disclosure](https://www.aeonlife.com.cn/info/summary/index.shtml): 公司概况 — legal name, registered capital, licensed scope and operating regions
+- [Information Disclosure](https://www.aeonlife.com.cn/info/index.shtml): 信息披露 — regulator-mandated disclosure index
+- [Branch Office Notices](https://www.aeonlife.com.cn/orgnotice/index.shtml): 分支机构信息公告
+- [Company Announcements](https://www.aeonlife.com.cn/notice/index.shtml): 百年公告
+- [News](https://www.aeonlife.com.cn/news/index.shtml): 百年新闻 — corporate news
+- [Careers](https://www.aeonlife.com.cn/join/index.shtml): 加入百年
+
+## Customer surfaces
+
+- [Customer Service](https://www.aeonlife.com.cn/customer/index.shtml): 客户服务 — policy servicing, endorsements, renewals, policy loans
+- [Claims](https://www.aeonlife.com.cn/claim/index.shtml): 理赔服务 — claim process, designated hospitals, service commitments
+- [Product Information](https://www.aeonlife.com.cn/product/information/index.shtml): 产品基本信息 — product register
+- [Sign Up](https://www.aeonlife.com.cn/einsurance/front/page/register.html): 一保通 customer registration
+- [Sign In](https://www.aeonlife.com.cn/einsurance/front/page/login.html): 一保通 customer login
+- [Group Flexible Benefits Platform](https://o2o.aeonlife.com.cn/o2o/login): 团险弹性福利平台 — login-only corporate benefits portal
+- National service hotline: 95542
+- Consumer rights mailbox: quanyibaohu@aeonlife.com.cn
+
+## Legal
+
+- [Legal Statement](https://www.aeonlife.com.cn/footer/law/index.shtml): 法律声明
+- [Privacy Agreement](https://www.aeonlife.com.cn/footer/privacy/index.shtml): 隐私协议
+- [Site Map](https://www.aeonlife.com.cn/footer/map/index.shtml): 网站地图
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/aeon-life/refs/heads/main/apis.yml): APIs.json/apis.yml record for Aeon Life
+- [Well-known probe](https://raw.githubusercontent.com/api-evangelist/aeon-life/refs/heads/main/well-known/aeon-life-well-known.yml): Every discovery path probed, with the status it returned
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/aeon-life/refs/heads/main/security/aeon-life-domain-security.yml): TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture
+- [Plans](https://raw.githubusercontent.com/api-evangelist/aeon-life/refs/heads/main/plans/aeon-life-plans-pricing.yml): API plan measurement (zero — no developer program)
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/aeon-life/refs/heads/main/rate-limits/aeon-life-rate-limits.yml): API rate-limit measurement (zero — no published limits)

@@ -1,0 +1,21 @@
+generated: '2026-09-10'
+method: searched
+source: https://www.aeonlife.com.cn/
+name: Aeon Life API plans and pricing
+plan_count: 0
+plans: []
+note: >-
+  Aeon Life publishes no API plans, because it publishes no API. There is no developer
+  portal, no pricing page for API access, and no "request API access" or partner-integration
+  page anywhere on www.aeonlife.com.cn (probed 2026-09-10; the site is Chinese-language only
+  and its commercial surface is the consumer insurance mall 保险商城 and the login-only group
+  flexible-benefits platform o2o.aeonlife.com.cn). The company does publish insurance PRODUCT
+  pricing and regulator-mandated rate notices (价格公告 / 利率公布 / 万能险结算利率公告) — those
+  are retail insurance prices, not API plans, and are deliberately not recorded here as plans.
+searched:
+- url: https://www.aeonlife.com.cn/
+  status: 200
+- url: https://www.aeonlife.com.cn/info/index.shtml
+  status: 200
+- url: https://www.aeonlife.com.cn/product/information/index.shtml
+  status: 200
